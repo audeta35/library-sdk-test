@@ -1,0 +1,22 @@
+{
+  "name": "library-sdk-test-example",
+  "displayName": "LibrarySdkTest Example",
+  "expo": {
+    "name": "library-sdk-test-example",
+    "slug": "library-sdk-test-example",
+    "description": "Example app for library-sdk-test",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
