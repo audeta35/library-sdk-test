@@ -11,26 +11,21 @@ import {
   Button,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-// import { SetDetailKey, SetLoading, SetAuth } from '../../redux/actions';
+// import {SetDetailKey, SetLoading, SetAuth} from '../../redux/actions';
 
 import style from './styles/appStyles';
 import EncryptedStorage from 'react-native-encrypted-storage';
 
-const KeyManagement = ({ navigation }) => {
-  const dispatch = useDispatch();
+const SessionManagement = ({ navigation }) => {
+  //   const dispatch = useDispatch();
   const [keyData, setKeyData] = useState({});
   const [detailModal, setDetailModal] = useState(false);
   const [isLoadingKey, setIsLoadingKey] = useState(true);
   const [key, setKeys] = useState([]);
 
   useEffect(() => {
-    console.log('keys');
+    // console.log('keys');
     getKeys();
-    // dispatch(
-    //   SetLoading({
-    //     isLoading: false,
-    //   })
-    // );
     setIsLoadingKey(false);
   }, []);
 
@@ -148,4 +143,4 @@ const KeyManagement = ({ navigation }) => {
   );
 };
 
-export default KeyManagement;
+export default SessionManagement;

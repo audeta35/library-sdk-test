@@ -1,101 +1,133 @@
-import {StyleSheet} from 'react-native'
+import {Dimensions} from 'react-native';
 
+const deviceWidth = Dimensions.get('screen').width;
+const deviceHeight = Dimensions.get('screen').height;
+const bgColor = '#F9FBFE';
+const accentColor = '#6379F4';
 
-const mainColor = '#8bb6f4'
-const accentColor = '#FF4F4F'
-
-const styles = StyleSheet.create({
-  container: {
+const styleIndex = {
+  scrollableView: {
     flex: 1,
-    backgroundColor: mainColor,
+    height: deviceHeight,
+    backgroundColor: bgColor,
   },
-  header: {
+  scrollViewStyle: {
     flex: 1,
-    justifyContent: 'flex-end',
-    paddingHorizontal: 20,
-    paddingBottom: 50,
+    justifyContent: 'flex-start',
+    backgroundColor: bgColor,
   },
-  footer: {
-    flex: 5,
-    backgroundColor: '#fff',
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    paddingHorizontal: 20,
-    paddingVertical: 30,
+  descText: {
+    padding: 16,
+    textAlign: 'center',
+    fontSize: 16,
   },
-  text_header: {
-    color: '#fff',
+  headerText: {
+    color: accentColor,
     fontWeight: 'bold',
     fontSize: 30,
+    textAlign: 'center',
+    marginVertical: 20,
   },
-  text_footer: {
-    color: '#05375a',
-    fontSize: 18,
-  },
-  action: {
-    flexDirection: 'row',
-    marginTop: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f2f2f2',
-    paddingBottom: 5,
-  },
-  actionError: {
-    flexDirection: 'row',
-    marginTop: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#FF0000',
-    paddingBottom: 5,
-  },
-  textInput: {
-    flex: 1,
-    marginTop: Platform.OS === 'ios' ? 0 : -12,
-    paddingLeft: 10,
-    color: '#05375a',
-  },
-  errorMsg: {
-    color: '#FF0000',
-    fontSize: 14,
-  },
-  button: {
-    alignItems: 'center',
-    marginTop: 50,
-  },
-  signIn: {
-    backgroundColor: accentColor,
-    width: '100%',
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
+  cardView: {
+    width: '90%',
+    backgroundColor: 'white',
     borderRadius: 10,
+    alignItems: 'center',
+    elevation: 5,
+    padding: 20,
+    marginVertical: 5,
   },
-  textSign: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  card: {
+  cardBadge: {
     backgroundColor: 'white',
     borderRadius: 10,
     elevation: 5,
     padding: 20,
-  },
-  cardView: {
-    marginVertical: 5,
     flexDirection: 'row',
+    marginVertical: 5,
   },
-  cardTitle: {
-    flex: 11,
-    color: '#05375a',
-    fontSize: 18,
-    textAlign: 'left',
-  },
-  cardIcon: {
-    flex:1,
-  },
-  loadCard: {
-    alignItems: 'center',
+  keyBadge: {
+    width: '90%',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    elevation: 5,
     padding: 20,
     marginVertical: 5,
-  }
-});
-
-export default styles
+  },
+  keyButton: {
+    height: 50,
+    justifyContent: 'center',
+    marginHorizontal: 5,
+    marginBottom: 10,
+    borderRadius: 10,
+    padding: 10,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonApproval: {
+    height: 50,
+    justifyContent: 'center',
+    marginHorizontal: 5,
+    marginVertical: 10,
+    borderRadius: 10,
+    padding: 10,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonTextStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  headerImage: {
+    height: 80,
+    width: 80,
+    margin: 10,
+  },
+  headerSubText: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'center',
+    marginVertical: 10,
+  },
+  headerChildText: {
+    paddingHorizontal: 20,
+    fontSize: 16,
+    textAlign: 'center',
+    marginVertical: 10,
+    color: 'black',
+  },
+  scannerText: {
+    flex: 1,
+    textAlign: 'center',
+    fontSize: 18,
+    padding: 32,
+    color: accentColor,
+  },
+  inputText: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    width: '90%',
+    borderRadius: 15,
+  },
+  keyHeader: {
+    fontSize: 20,
+    textAlign: 'center',
+    marginVertical: 5,
+    color: 'black',
+  },
+  detailTextContent: {
+    color: 'gray',
+    marginHorizontal: 16,
+    marginVertical: 10
+  },
+  detailText: {
+    color: 'black',
+    fontSize: 20,
+    marginHorizontal: 16,
+  },
+};
+export default styleIndex;

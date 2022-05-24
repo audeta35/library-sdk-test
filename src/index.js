@@ -1,16 +1,39 @@
 import * as React from 'react';
-
-import SessionManagement from './SessionManagement'
-import KeyManagement from './KeyManagement'
+import KeyManagement from './component/KeyManagement';
+import SessionManagement from './component/SessionManagement';
+import {
+  ReduxSetAuth,
+  ReduxSetLoading,
+  ReduxSetDetailKey,
+} from './redux/actions';
+import styleIndex from './styles';
+import reducer from './redux/reducers';
 
 export async function multiply(a, b) {
-  return new Promise.resolve(a * b);
+  return Promise.resolve(a * b);
+}
+// Component
+export function Sessions(props) {
+  return <SessionManagement props={props} />;
 }
 
-export function Sessions() {
-  return (<SessionManagement />);
+export function Keys(props) {
+  return <KeyManagement props={props} />;
 }
 
-export function Keys () {
-  return (<KeyManagement />);
+// Redux
+export function SetAuth(payload) {
+  return ReduxSetAuth(payload);
 }
+
+export function SetLoading(payload) {
+  return ReduxSetLoading(payload);
+}
+
+export function SetDetailKey(payload) {
+  return ReduxSetDetailKey(payload);
+}
+
+// Variable
+export let MainReducer = reducer;
+export let Style = styleIndex;
