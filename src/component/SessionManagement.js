@@ -13,7 +13,7 @@ import {
 import { useDispatch } from 'react-redux';
 // import {SetDetailKey, SetLoading, SetAuth} from '../../redux/actions';
 
-import style from './styles/appStyles';
+import style from '../styles/appStyles';
 import EncryptedStorage from 'react-native-encrypted-storage';
 
 const SessionManagement = ({ navigation }) => {
