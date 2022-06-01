@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Alert,
   ScrollView,
@@ -10,14 +10,14 @@ import {
   Modal,
   Button,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 // import {SetDetailKey, SetLoading, SetAuth} from '../../redux/actions';
 
 import style from '../styles/appStyles';
 import EncryptedStorage from 'react-native-encrypted-storage';
 
-const SessionManagement = ({ navigation }) => {
-  //   const dispatch = useDispatch();
+const SessionManagement = ({navigation}) => {
+//   const dispatch = useDispatch();
   const [keyData, setKeyData] = useState({});
   const [detailModal, setDetailModal] = useState(false);
   const [isLoadingKey, setIsLoadingKey] = useState(true);
@@ -57,26 +57,26 @@ const SessionManagement = ({ navigation }) => {
             deleteKeys(data);
           },
         },
-      ]
+      ],
     );
   }
 
-  const detailKey = (data) => {
+  const detailKey = data => {
     setKeyData(data);
     setDetailModal(true);
   };
 
-  const deleteKeys = async (data) => {
-    const lastKey = key.filter((keys) => keys !== data);
+  const deleteKeys = async data => {
+    const lastKey = key.filter(keys => keys !== data);
     // setKeys(lastKey);
     await EncryptedStorage.setItem('key', JSON.stringify(lastKey));
     getKeys();
   };
 
   return (
-    <ScrollView style={style?.scrollableView}>
-      <Text style={style?.headerText}>Key Manager</Text>
-      <View style={{ alignItems: 'center' }}>
+    <ScrollView>
+      <Text style={style?.headerText}>Session Manager</Text>
+      <View style={{alignItems: 'center'}}>
         <Text style={style?.headerChildText}>
           The first time apps is used to login, a private key is generated and
           stored on your device.
@@ -87,10 +87,9 @@ const SessionManagement = ({ navigation }) => {
           onRequestClose={() => {
             setDetailModal(!detailModal);
             setKeyData({});
-          }}
-        >
-          <ScrollView style={style?.scrollableView}>
-            <Text style={style?.headerText}>Detail Key</Text>
+          }}>
+          <View>
+            <Text style={style?.headerText}>Detail Session</Text>
             <Text style={style?.detailText}>mobile pair:</Text>
             <Text style={style.detailTextContent}>
               {keyData?.mobileKeyPair}
@@ -101,12 +100,10 @@ const SessionManagement = ({ navigation }) => {
             <Text style={style.detailTextContent}>{keyData?.publicKey}</Text>
             <Text style={style?.detailText}>current time:</Text>
             <Text style={style?.detailTextContent}>{keyData?.currentTime}</Text>
-
             <View
               style={{
                 marginHorizontal: 16,
-              }}
-            >
+              }}>
               <Button
                 onPress={() => {
                   setDetailModal(false);
@@ -115,23 +112,18 @@ const SessionManagement = ({ navigation }) => {
                 title="Back"
               />
             </View>
-          </ScrollView>
+          </View>
         </Modal>
-
         {key?.map((row, index) => {
           return (
             <View key={index} style={style?.keyBadge}>
-              <Text style={style?.keyHeader}>Key - {row?.currentTime}</Text>
+              <Text style={style?.keyHeader}>Session - {row?.currentTime}</Text>
               <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <Text style={{ color: 'black' }} onPress={() => detailKey(row)}>
+                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <Text style={{color: 'black'}} onPress={() => detailKey(row)}>
                   Detail
                 </Text>
-                <Text style={{ color: 'black' }} onPress={() => deleteKey(row)}>
+                <Text style={{color: 'black'}} onPress={() => deleteKey(row)}>
                   Remove
                 </Text>
               </View>
